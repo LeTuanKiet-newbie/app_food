@@ -109,9 +109,9 @@ const getLikeRes = async (req, res) => {
 const createRateRes = async (req, res) => {
   try {
     const { token } = await req.headers;
-    const res_id = await req.params;
+    const { res_id } = await req.params;
     const { user_id } = await checkToken(token).data;
-    const amount = await req.body;
+    const { amount } = await req.body;
     const date = new Date();
     const date_rate = await date.toJSON().slice(0, 19).replace("T", " ");
     const newRate = {
@@ -140,7 +140,7 @@ const createRateRes = async (req, res) => {
 };
 const findRateByRes = async (req, res) => {
   try {
-    const res_id = await req.params;
+    const { res_id } = await req.params;
     const rateList = await model.rate_res.findAll({
       where: {
         res_id,

@@ -135,7 +135,7 @@ const getLikeUser = async (req, res) => {
 const findRateByUser = async (req, res) => {
   try {
     const { token } = await req.headers;
-    const user_id = await checkToken(token).data;
+    const { user_id } = await checkToken(token).data;
     const rateList = await model.rate_res.findAll({
       where: {
         user_id,

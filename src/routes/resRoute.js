@@ -12,7 +12,7 @@ resRoute.post("/likeornot/:res_id", createLike);
 
 resRoute.get("/getlikebyres/:res_id", getLikeRes);
 
-resRoute.post("/rateres/res", createRateRes);
+resRoute.post("/rateres/:res_id", createRateRes);
 
-resRoute.get("/findratebyres", findRateByRes);
+resRoute.get("/findratebyres/:res_id", findRateByRes);
 export default resRoute;
